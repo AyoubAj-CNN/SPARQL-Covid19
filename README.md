@@ -1,10 +1,12 @@
 # SPARQL-Covid19
 Analyzing covid19 data using Sparql
+Ce projet sera traité dans la deuxième partie de TP.
+
 ## TP1 Linked Data - Ajarra Ayoub
 ----------------------
 # Première partie : 14 requêtes sur DBPedia
 ----------------------
-1. Query 1:
+1. Query 1: Afficher les URLs des lyonnais (i.e. personnes nées à Lyon)
 
         PREFIX foaf: <http://xmlns.com/foaf/0.1/>
         PREFIX dbo: <http://dbpedia.org/ontology/>
@@ -17,7 +19,7 @@ Analyzing covid19 data using Sparql
         }
 
 	
-2. Query 2:
+2. Query 2: Afficher les URLs et les noms (foaf:name) des lyonnais
 
         PREFIX foaf: <http://xmlns.com/foaf/0.1/>
         PREFIX dbo: <http://dbpedia.org/ontology/>
@@ -30,7 +32,7 @@ Analyzing covid19 data using Sparql
              FILTER(!contains(?n,","))
         }
 
-3. Query 3:
+3. Query 3: Afficher les noms des lyonnais ne contenant pas de virgule (fonction contains)
 
         PREFIX foaf: <http://xmlns.com/foaf/0.1/>
         PREFIX dbo: <http://dbpedia.org/ontology/>
@@ -42,7 +44,8 @@ Analyzing covid19 data using Sparql
              FILTER(!contains(?n,","))
         }
 
-4. Query 4:
+4. Query 4: Afficher les noms (sans virgule) et dates de naissance des lyonnais
+
 
         PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
         PREFIX foaf: <http://xmlns.com/foaf/0.1/>
@@ -57,7 +60,8 @@ Analyzing covid19 data using Sparql
         }
 
 
-5. Query 5
+5. Query 5 : Afficher les noms et dates de naissance des lyonnais nés après 1900
+
 
         PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
         PREFIX foaf: <http://xmlns.com/foaf/0.1/>
@@ -73,7 +77,7 @@ Analyzing covid19 data using Sparql
         }
 
 
-6. Query 6:
+6. Query 6: Afficher les noms et dates de naissance des lyonnais nés après 1900 avec, le cas échéant, leur date de décès
 
         PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
         PREFIX foaf: <http://xmlns.com/foaf/0.1/>
@@ -85,7 +89,7 @@ Analyzing covid19 data using Sparql
              dbo:deathPlace	dbr:Lyon.
         }
 
-7. Query 7:
+7. Query 7: Afficher les noms de tous les lyonnais morts à Lyon
 
         PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
         PREFIX foaf: <http://xmlns.com/foaf/0.1/>
@@ -97,7 +101,7 @@ Analyzing covid19 data using Sparql
              dbo:deathPlace ?x.
         }
 
-8. Query 8:
+8. Query 8: Afficher les noms de tous les lyonnais morts hors de France
 
     	PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
     	PREFIX foaf: <http://xmlns.com/foaf/0.1/>
@@ -111,7 +115,7 @@ Analyzing covid19 data using Sparql
     	  FILTER (?country!=dbr:France)
     	}
 
-9. Query 9:
+9. Query 9: Afficher toutes les villes françaises dont le maire est natif
 
     	PREFIX dbr: <http://dbpedia.org/resource/>
     	PREFIX dbo: <http://dbpedia.org/ontology/>
@@ -123,7 +127,7 @@ Analyzing covid19 data using Sparql
     	  ?mayor dbo:birthPlace ?t.
     	}
 
-10. Query 10
+10. Query 10 : Afficher tous les maires français (i.e. d’une ville de France) nés hors de France
 
     	PREFIX dbr: <http://dbpedia.org/resource/>
     	PREFIX dbo: <http://dbpedia.org/ontology/>
@@ -137,7 +141,7 @@ Analyzing covid19 data using Sparql
     	  FILTER(?mayorbcountry!=dbr:France)
     	}
     	
-11. Query 11:
+11. Query 11: Afficher tous les maires nés hors du pays où ils sont maires
 
     	PREFIX dbr: <http://dbpedia.org/resource/>
     	PREFIX dbo: <http://dbpedia.org/ontology/>
@@ -151,7 +155,7 @@ Analyzing covid19 data using Sparql
     	  FILTER(?mayorbcountry!=?c)
     	}
     	
-12. Query 12:
+12. Query 12: Afficher le nombre de maires français nés hors de France
 
     	PREFIX dbr: <http://dbpedia.org/resource/>
     	PREFIX dbo: <http://dbpedia.org/ontology/>
@@ -165,7 +169,8 @@ Analyzing covid19 data using Sparql
     	  FILTER(?mayorbcountry!=dbr:France)
     	}
     	
-13. Query 13 and 14:
+13. Query 13 and 14: Afficher pour 10 villes françaises le nombre de natifs présents dans DBPedia, les 10 villes ayant le plus de natifs dans DBPedia.
+
 
     	PREFIX dbr: <http://dbpedia.org/resource/>
     	PREFIX dbo: <http://dbpedia.org/ontology/>
