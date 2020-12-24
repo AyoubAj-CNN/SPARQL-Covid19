@@ -1,6 +1,7 @@
 # SPARQL-Covid19
 Analyzing covid19 data using Sparql
-Ce projet sera traité dans la deuxième partie de TP.
+
+This project will be discussed in the second part of this homework.
 
 ## TP1 Linked Data - Ajarra Ayoub
 ----------------------
