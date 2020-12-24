@@ -213,7 +213,7 @@ nous utiliserons la requête ci-dessous pour lister toutes les states (et territ
 
 Résultat :
 
-![Result1](https://github.com/AyoubAj-CNN/SPARQL-Covid19/blob/main/properties.PNG "States")
+![Result1](https://github.com/AyoubAj-CNN/SPARQL-Covid19/blob/main/result1.PNG "States")
 
 
 
