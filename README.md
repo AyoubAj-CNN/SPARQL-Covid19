@@ -202,7 +202,7 @@ https://github.com/nytimes/covid-19-data
 -------------------------------
 * Description de la base de données:
 
-nous utiliserons la requête ci-dessous pour lister toutes les states (et territoires) dans la base de données
+- Nous utiliserons la requête ci-dessous pour lister toutes les states (et territoires) dans la base de données:
 
 		SELECT DISTINCT ?name
 		{
@@ -215,9 +215,20 @@ Résultat :
 
 ![Result1](https://github.com/AyoubAj-CNN/SPARQL-Covid19/blob/main/result1.PNG "States")
 
+- Nous utiliserons la requête ci-dessous pournombre total de cas et de décès au niveau national:
 
+		SELECT ?date (sum(?cases) as ?totalCases) (sum(?deaths) as ?totalDeaths)
+		{
+		    ?report :cases ?cases ;  
+			    :deaths ?deaths ;      
+			    :date ?date
+		}
+		GROUP BY ?date
+		ORDER BY DESC(?date)
+		
+Résultat:
 
-
+![Result2](https://github.com/AyoubAj-CNN/SPARQL-Covid19/blob/main/result2.PNG "cases and deaths")
 --------------------------------------------
 * Requête 1: 
 
