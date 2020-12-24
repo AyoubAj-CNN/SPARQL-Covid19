@@ -199,7 +199,21 @@ https://github.com/nytimes/covid-19-data
 
 ![Properties](https://github.com/AyoubAj-CNN/SPARQL-Covid19/blob/main/properties.PNG "Properties")
 
------------------
+-------------------------------
+* Description de la base de données:
+
+
+
+
+
+
+
+
+
+
+
+
+--------------------------------------------
 * Requête 1: 
 
 Elle permet de récupérer les albums d'un artiste, avec la date de sortie, le nombre de pistes, et une image.
