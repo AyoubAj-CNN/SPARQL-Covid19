@@ -265,17 +265,8 @@ Résultat:
 
 ![Result3](https://github.com/AyoubAj-CNN/SPARQL-Covid19/blob/main/result3.PNG)
 
-* Requête 2 :
+Nous avons mis en correspondance ces données avec un modèle graphique simple :
 
-Cette requête donne le nombre de collaborations d'un artiste.
+![Graph](https://github.com/AyoubAj-CNN/SPARQL-Covid19/blob/main/Graph.PNG)
 
-	PREFIX foaf: <http://xmlns.com/foaf/0.1/>
-	PREFIX rel: <http://purl.org/vocab/relationship/>
-	SELECT (count(distinct ?collaboratorname) as ?count)
-	WHERE {
-		?artist foaf:name "Damon Albarn".
-		?collaborator rel:collaboratesWith ?artist.
-		?collaborator foaf:name ?collaboratorname.
-	}
-![3](figures/2.png)
-![4](figures/d2.png)
+
