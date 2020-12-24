@@ -188,8 +188,8 @@ https://github.com/nytimes/covid-19-data
 
 * Classes et propriétés liées à la base de données choisie:
 
-![Classes](figures/https://www.dropbox.com/home?preview=classes.PNG "classes")
-![2](figures/d1.png)
+![Classes](Classes.PNG)
+![Properties](Properties.PNG)
 
 -----------------
 * Requête 1: 
