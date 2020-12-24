@@ -202,13 +202,18 @@ https://github.com/nytimes/covid-19-data
 -------------------------------
 * Description de la base de données:
 
+nous utiliserons la requête ci-dessous pour lister toutes les states (et territoires) dans la base de données
 
+		SELECT DISTINCT ?name
+		{
+		    ?country :state ?state.
+		    ?state rdfs:label ?name
+		}
+		ORDER BY ?name
 
+Résultat :
 
-
-
-
-
+![Result1](https://github.com/AyoubAj-CNN/SPARQL-Covid19/blob/main/properties.PNG "States")
 
 
 
