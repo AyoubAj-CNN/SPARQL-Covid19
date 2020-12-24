@@ -194,8 +194,10 @@ https://github.com/nytimes/covid-19-data
 
 * Classes et propriétés liées à la base de données choisie:
 
-![Classes](https://github.com/AyoubAj-CNN/SPARQL-Covid19/blob/main/classes.PNG)
-![Properties](https://github.com/AyoubAj-CNN/SPARQL-Covid19/blob/main/properties.PNG)
+![Classes](https://github.com/AyoubAj-CNN/SPARQL-Covid19/blob/main/classes.PNG "Classes")
+
+
+![Properties](https://github.com/AyoubAj-CNN/SPARQL-Covid19/blob/main/properties.PNG "Properties")
 
 -----------------
 * Requête 1: 
