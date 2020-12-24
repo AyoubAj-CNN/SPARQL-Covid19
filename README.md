@@ -232,29 +232,38 @@ Résultat:
 --------------------------------------------
 * Requête 1: 
 
-Elle permet de récupérer les albums d'un artiste, avec la date de sortie, le nombre de pistes, et une image.
-On peut changer "Radiohead" par le nom d'un autre artiste/groupe (Jean Michel Jarre par exemple) pour avoir une liste de ses albums.
-On peut avoir des répétitions car le même album peut par exemple être publié par des maisons de disques différentes, à des dates différentes. 
-Ceci est du au fait que Musicbrainz vise à cataloguer toutes les sorties officielles, et non pas les albums en eux-mêmes.
+ cette recherche ci-dessous permet de calculer le nombre de cas par habitant pour les comtés en recherchant les valeurs de population dans les wikidata.
 
-	PREFIX vocab: <http://dbtune.org/musicbrainz/resource/vocab/>
-	PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
-	PREFIX dc: <http://purl.org/dc/elements/1.1/>
-	PREFIX mo: <http://purl.org/ontology/mo/>
-	PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+		PREFIX wd: <http://www.wikidata.org/entity/>
+		PREFIX wdt: <http://www.wikidata.org/prop/direct/>
+		SELECT ?countyName ?cases ?population ?percentCases
+		{
+		    {SELECT (max(?d) as ?date) { ?r :date ?d} }
 
-	SELECT ?title ?date ?ntracks ?image
-	WHERE {
-	  ?artist foaf:name "Radiohead".
-	  ?album foaf:maker ?artist;
-			 rdf:type mo:Record;
-			 dc:title ?title;
-			 mo:image ?image;
-			 vocab:tracks ?ntracks;
-			 dc:date ?date.
-	}
-![1](figures/1.png)
-![2](figures/d1.png)
+		    ?report 
+			:cases ?cases;
+			:date ?date;
+			:county [
+			    rdfs:label ?countyName ;
+			    :fips ?fips
+			]
+
+		    SERVICE <https://query.wikidata.org/sparql>
+		    {
+			[
+			    wdt:P1082 ?population ;
+			    wdt:P882 ?fips
+			]
+		    }
+		    BIND(roundHalfToEven((?cases / ?population) * 100,2) AS ?percentCases)
+		}
+		ORDER BY desc(?percentCases)
+
+
+
+Résultat:
+
+![Result3](https://github.com/AyoubAj-CNN/SPARQL-Covid19/blob/main/result3.PNG)
 
 * Requête 2 :
 
